@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Formulario from './components/Formulario'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <section className="container">
           <div className="row">
             <div className="col-6">
-              <h1>Hola mundo</h1>
+              <Formulario />
             </div>
             <div className="col-6">
               <h1>Hola mundo</h1>
