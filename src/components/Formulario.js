@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const Formulario = () => {
-  const [inputValues, setValues] = useState({
+  const [cita, setCita] = useState({
     mascota: "",
     propietario: "",
     fecha: "",
@@ -11,7 +11,14 @@ const Formulario = () => {
 
   const [error, setError] = useState(false);
 
-  const { mascota, propietario, fecha, hora, sintomas } = inputValues;
+  const { mascota, propietario, fecha, hora, sintomas } = cita;
+
+  const actualizarState = (e) => {
+    setCita({
+      ...cita,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const submitCita = (e) => {
     e.preventDefault();
@@ -46,6 +53,7 @@ const Formulario = () => {
             name="mascota"
             placeholder="Nombre Mascota"
             onBlur={validarCampo}
+            onChange={actualizarState}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar el nombre de la mascota.
@@ -59,6 +67,7 @@ const Formulario = () => {
             name="propietario"
             placeholder="Nombre Propietario"
             onBlur={validarCampo}
+            onChange={actualizarState}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar el nombre del propietario.
@@ -71,6 +80,7 @@ const Formulario = () => {
             className="form-control"
             name="fecha"
             onBlur={validarCampo}
+            onChange={actualizarState}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar la fecha correspondiente a la cita.
@@ -83,6 +93,7 @@ const Formulario = () => {
             className="form-control"
             name="hora"
             onBlur={validarCampo}
+            onChange={actualizarState}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar la hora correspondiente a la cita.
@@ -95,6 +106,7 @@ const Formulario = () => {
             placeholder="Sintomas"
             name="sintomas"
             onBlur={validarCampo}
+            onChange={actualizarState}
           ></textarea>
           <div class="invalid-feedback">
             Debe ingresar los sintomas que correspondan.
