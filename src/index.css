@@ -13,11 +13,28 @@ body {
   background-position: 0 0, 29px 29px;
 }
 
+h2{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .titulo{
   font-size: 50px;
   background: rgb(255, 255, 255);
   width: 350px;
   height:120px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.error{
+  font-size: 25px;
+  color: red;
+  background-color: white;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
