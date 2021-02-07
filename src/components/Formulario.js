@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
+import uuid from "react-uuid";
 
-const Formulario = () => {
+const Formulario = ({ crearCita }) => {
   const [cita, setCita] = useState({
     mascota: "",
     propietario: "",
@@ -23,11 +24,24 @@ const Formulario = () => {
   const submitCita = (e) => {
     e.preventDefault();
     //validar campos
-    if ([mascota, propietario, fecha, hora, sintomas].includes("")) {
+    if ([mascota, propietario, fecha, hora, sintomas].includes('')) {
       setError(true);
       return;
     }
     setError(false);
+
+    cita.id = uuid();
+
+    crearCita(cita);
+
+    setCita({
+      mascota: "",
+      propietario: "",
+      fecha: "",
+      hora: "",
+      sintomas: "",
+    });
+
   };
 
   const validarCampo = (e) => {
@@ -44,7 +58,7 @@ const Formulario = () => {
           Todos los campos son obligatorios
         </div>
       ) : null}
-      <form className="border p-3" onSubmit={submitCita}>
+      <form className="border p-3" onSubmit={(submitCita)}>
         <div className="mb-3">
           <label className="form-label">Mascota</label>
           <input
@@ -54,6 +68,7 @@ const Formulario = () => {
             placeholder="Nombre Mascota"
             onBlur={validarCampo}
             onChange={actualizarState}
+            value={mascota}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar el nombre de la mascota.
@@ -68,6 +83,7 @@ const Formulario = () => {
             placeholder="Nombre Propietario"
             onBlur={validarCampo}
             onChange={actualizarState}
+            value={propietario}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar el nombre del propietario.
@@ -81,19 +97,21 @@ const Formulario = () => {
             name="fecha"
             onBlur={validarCampo}
             onChange={actualizarState}
+            value={fecha}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar la fecha correspondiente a la cita.
           </div>
         </div>
         <div className="mb-3">
-          <label className="form-label">Fecha</label>
+          <label className="form-label">Hora</label>
           <input
             type="time"
             className="form-control"
             name="hora"
             onBlur={validarCampo}
             onChange={actualizarState}
+            value={hora}
           ></input>
           <div class="invalid-feedback">
             Debe ingresar la hora correspondiente a la cita.
@@ -107,6 +125,7 @@ const Formulario = () => {
             name="sintomas"
             onBlur={validarCampo}
             onChange={actualizarState}
+            value={sintomas}
           ></textarea>
           <div class="invalid-feedback">
             Debe ingresar los sintomas que correspondan.
