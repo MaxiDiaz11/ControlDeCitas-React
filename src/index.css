@@ -1,28 +1,56 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: #aaaaf1;
-  opacity: 0.6;
-  background-image: radial-gradient(
-      #070c59 1.4500000000000002px,
-      transparent 1.4500000000000002px
-    ),
-    radial-gradient(#070c59 1.4500000000000002px, #aaaaf1 1.4500000000000002px);
-  background-size: 58px 58px;
-  background-position: 0 0, 29px 29px;
 }
 
-h2{
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.titulo{
+.titulo {
   font-size: 50px;
   background: rgb(255, 255, 255);
   width: 350px;
-  height:120px;
+  height: 120px;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -31,7 +59,7 @@ h2{
   letter-spacing: 1px;
 }
 
-.error{
+.error {
   font-size: 25px;
   color: red;
   background-color: white;
@@ -42,7 +70,7 @@ h2{
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.lista{
+.lista {
   background-color: white;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -50,5 +78,4 @@ h2{
   border-bottom-right-radius: 1rem;
   letter-spacing: 1px;
   font-size: 19px;
-
 }
