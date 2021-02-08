@@ -58,7 +58,7 @@ const Formulario = ({ crearCita }) => {
           Todos los campos son obligatorios
         </div>
       ) : null}
-      <form className="border p-3 my-3" onSubmit={submitCita}>
+      <form className="p-3" onSubmit={submitCita}>
         <div className="mb-3">
           <label className="form-label">Mascota</label>
           <input
