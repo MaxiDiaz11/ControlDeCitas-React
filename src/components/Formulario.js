@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import uuid from "react-uuid";
+import PropTypes from "prop-types";
 
 const Formulario = ({ crearCita }) => {
   const [cita, setCita] = useState({
@@ -24,7 +25,7 @@ const Formulario = ({ crearCita }) => {
   const submitCita = (e) => {
     e.preventDefault();
     //validar campos
-    if ([mascota, propietario, fecha, hora, sintomas].includes('')) {
+    if ([mascota, propietario, fecha, hora, sintomas].includes("")) {
       setError(true);
       return;
     }
@@ -41,7 +42,6 @@ const Formulario = ({ crearCita }) => {
       hora: "",
       sintomas: "",
     });
-
   };
 
   const validarCampo = (e) => {
@@ -58,7 +58,7 @@ const Formulario = ({ crearCita }) => {
           Todos los campos son obligatorios
         </div>
       ) : null}
-      <form className="border p-3" onSubmit={(submitCita)}>
+      <form className="border p-3 my-3" onSubmit={submitCita}>
         <div className="mb-3">
           <label className="form-label">Mascota</label>
           <input
@@ -137,6 +137,10 @@ const Formulario = ({ crearCita }) => {
       </form>
     </Fragment>
   );
+};
+
+Formulario.propTypes = {
+  crearCita: PropTypes.func.isRequired,
 };
 
 export default Formulario;

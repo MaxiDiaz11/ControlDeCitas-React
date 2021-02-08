@@ -42,3 +42,13 @@ h2{
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.lista{
+  background-color: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  letter-spacing: 1px;
+  font-size: 19px;
+
+}
